@@ -5,7 +5,6 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-
 def article_list(request):
 
     articles = Article.objects.all().order_by("date")
