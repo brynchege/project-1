@@ -7,11 +7,32 @@
     <title>Article</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
  </head>
+
  <body>
+
+  <header class="wrapper">
+     <h1><a href="{% url 'articles:list' %}"><img src="{% static 'logo.png' %}"  alt="Monster"/></a></h1>
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                <li>
+                    <form class="logout-link" action="{% url 'accounts:logout'%}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Logout</button>
+                    </form>
+                </li>
+                <li><a href="{% url 'articles:create' %}">New Article</a></li>
+                {% else %}
+                <li><a href="{% url 'accounts:login' %}" class="highlight">Login</a></li>
+                <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+                {% endif %}
+            </ul>
+        </nav>
   <div class="wrapper">
-     <h1><a href="{% url 'articles:list' %}"><img src="{% static 'logo.png' %}"></a></h1>
-     {% block content %}
-     {% endblock %}
+      {% block content %}
+      {% endblock %}
   </div>
+
+  </header>
  </body>
 </html>
