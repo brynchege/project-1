@@ -90,22 +90,6 @@ Default behaviour:
 * Users can post multiple reviews on one object
 * Users can always update their posted reviews
 
-# Coming Soon
---------
-
-REVIEW_RATING_CHOICES
-+++++++++++++++++++++
-
-If you want other rating choices than 0-5, you can define a new tuple, like:
-
-.. code-block:: python
-
-    REVIEW_RATING_CHOICES = (
-        ('1', 'bad'),
-        ('2', 'average'),
-        ('3', 'excellent'),
-    )
-
 
 REVIEW_ALLOW_ANONYMOUS
 ++++++++++++++++++++++
